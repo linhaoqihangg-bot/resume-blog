@@ -35,12 +35,24 @@ export const profile = {
       outcome: "建议补充线上地址、GitHub 仓库和你负责的核心模块。",
     },
     {
-      name: "项目位 02：后端接口服务",
-      status: "待替换为真实项目",
+      name: "FastAPI PostgreSQL 权限认证后端",
+      status: "已发布到 GitHub",
       summary:
-        "用于展示 API 设计、数据库建模、错误处理、鉴权或日志等服务端能力。",
-      stack: ["Python", "FastAPI", "SQL"],
-      outcome: "建议补充接口文档、关键表结构和性能或稳定性改进。",
+        "基于 FastAPI 构建异步后端 API，使用 PostgreSQL 存储用户与 refresh token，覆盖注册、登录、JWT 鉴权、当前用户查询、密码重置、账号删除、数据库迁移和健康检查。",
+      stack: [
+        "Python 3.14",
+        "FastAPI",
+        "PostgreSQL",
+        "SQLAlchemy Async",
+        "Alembic",
+        "JWT",
+        "Docker",
+        "pytest",
+        "GitHub Actions",
+      ],
+      outcome:
+        "完成 Docker Compose 本地数据库、Alembic 迁移、认证接口测试与 CI 检查；本地验证 42 个测试通过，覆盖率 100%。",
+      githubUrl: "https://github.com/linhaoqihangg-bot/internship-fastapi-api",
     },
     {
       name: "项目位 03：数据处理工具",

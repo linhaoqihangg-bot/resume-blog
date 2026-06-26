@@ -6,6 +6,7 @@ interface Props {
     summary: string;
     stack: readonly string[];
     outcome: string;
+    githubUrl?: string;
   };
 }
 
@@ -29,5 +30,17 @@ const { project } = Astro.props;
       }
     </div>
     <p class="border-t border-line pt-4 text-sm leading-6 text-muted">{project.outcome}</p>
+    {
+      project.githubUrl && (
+        <a
+          class="focus-ring inline-flex w-fit items-center rounded-md border border-primary px-3 py-2 text-sm font-semibold text-primary transition hover:bg-primary hover:text-white"
+          href={project.githubUrl}
+          target="_blank"
+          rel="noreferrer"
+        >
+          查看 GitHub 源码
+        </a>
+      )
+    }
   </div>
 </article>

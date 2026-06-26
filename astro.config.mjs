@@ -3,7 +3,7 @@ import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import tailwindcss from "@tailwindcss/vite";
 
-const site = process.env.SITE_URL ?? "https://your-github-username.github.io";
+const site = process.env.SITE_URL ?? "https://linhaoqihangg-bot.github.io";
 
 export default defineConfig({
   site,

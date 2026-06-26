@@ -14,7 +14,7 @@ const pageTitle = Astro.props.title
   ? `${Astro.props.title} | ${profile.name}`
   : `${profile.name} | 开发实习简历博客`;
 const description = Astro.props.description ?? profile.summary;
-const site = Astro.site ?? new URL("https://your-github-username.github.io");
+const site = Astro.site ?? new URL("https://linhaoqihangg-bot.github.io");
 const canonical = new URL(Astro.url.pathname, site).toString();
 const ogImage = new URL(withBase("assets/hero-workspace.png"), site).toString();
 ---
