@@ -30,7 +30,6 @@ jobs:
         uses: withastro/action@v6
         with:
           node-version: 24
-          package-manager: pnpm@latest
         env:
           SITE_URL: https://${{ github.repository_owner }}.github.io
 
