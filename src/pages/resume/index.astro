@@ -1,0 +1,86 @@
+---
+import SectionHeading from "../../components/SectionHeading.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { profile } from "../../data/profile";
+import { withBase } from "../../utils/paths";
+---
+
+<BaseLayout title="简历" description="詹幸霖的结构化简历页面，面向开发实习机会。">
+  <section class="bg-white">
+    <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
+      <SectionHeading
+        eyebrow="Resume"
+        title="结构化简历"
+        description="公开页面仅展示邮箱联系方式，学校、专业和项目细节可以在后续版本中继续补充。"
+      />
+
+      <div class="mt-8 grid gap-6 lg:grid-cols-[0.72fr_1.28fr]">
+        <aside class="rounded-lg border border-line bg-canvas p-6">
+          <h1 class="text-3xl font-bold text-ink">{profile.name}</h1>
+          <p class="mt-2 text-muted">{profile.role}</p>
+          <dl class="mt-6 space-y-4 text-sm">
+            <div>
+              <dt class="font-semibold text-ink">邮箱</dt>
+              <dd class="mt-1 text-muted">
+                <a class="focus-ring rounded-md hover:text-primary" href={`mailto:${profile.email}`}>{profile.email}</a>
+              </dd>
+            </div>
+            <div>
+              <dt class="font-semibold text-ink">绩点</dt>
+              <dd class="mt-1 text-muted">{profile.gpa}</dd>
+            </div>
+            <div>
+              <dt class="font-semibold text-ink">求职方向</dt>
+              <dd class="mt-1 text-muted">开发实习</dd>
+            </div>
+          </dl>
+        </aside>
+
+        <div class="space-y-6">
+          <section class="rounded-lg border border-line bg-canvas p-6">
+            <h2 class="text-xl font-bold text-ink">教育经历</h2>
+            <div class="mt-4 grid gap-3 text-sm text-muted sm:grid-cols-2">
+              <p><strong class="text-ink">学校：</strong>{profile.education.school}</p>
+              <p><strong class="text-ink">专业：</strong>{profile.education.major}</p>
+              <p><strong class="text-ink">学历：</strong>{profile.education.degree}</p>
+              <p><strong class="text-ink">时间：</strong>{profile.education.period}</p>
+            </div>
+          </section>
+
+          <section class="rounded-lg border border-line bg-canvas p-6">
+            <h2 class="text-xl font-bold text-ink">技能概览</h2>
+            <div class="mt-4 grid gap-4 md:grid-cols-3">
+              {
+                profile.skills.map((group) => (
+                  <div>
+                    <h3 class="font-semibold text-ink">{group.title}</h3>
+                    <p class="mt-2 text-sm leading-7 text-muted">{group.items.join(" / ")}</p>
+                  </div>
+                ))
+              }
+            </div>
+          </section>
+
+          <section class="rounded-lg border border-line bg-canvas p-6">
+            <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+              <h2 class="text-xl font-bold text-ink">项目经历</h2>
+              <a class="focus-ring rounded-md text-sm font-semibold text-primary hover:text-primary-strong" href={withBase("projects/")}>
+                查看项目详情
+              </a>
+            </div>
+            <div class="mt-4 space-y-4">
+              {
+                profile.projects.map((project) => (
+                  <article class="border-t border-line pt-4 first:border-t-0 first:pt-0">
+                    <h3 class="font-semibold text-ink">{project.name}</h3>
+                    <p class="mt-2 text-sm leading-7 text-muted">{project.summary}</p>
+                  </article>
+                ))
+              }
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

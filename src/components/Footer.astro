@@ -1,0 +1,17 @@
+---
+import { profile } from "../data/profile";
+import { withBase } from "../utils/paths";
+
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-line bg-white">
+  <div class="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-8 text-sm text-muted sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
+    <p>© {year} {profile.name}. Built with Astro.</p>
+    <div class="flex flex-wrap gap-4">
+      <a class="focus-ring rounded-md hover:text-primary" href={withBase("projects/")}>项目</a>
+      <a class="focus-ring rounded-md hover:text-primary" href={withBase("blog/")}>博客</a>
+      <a class="focus-ring rounded-md hover:text-primary" href={`mailto:${profile.email}`}>{profile.email}</a>
+    </div>
+  </div>
+</footer>

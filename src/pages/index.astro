@@ -1,0 +1,146 @@
+---
+import ProjectCard from "../components/ProjectCard.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { profile } from "../data/profile";
+import { withBase } from "../utils/paths";
+
+const heroImage = withBase("assets/hero-workspace.png");
+---
+
+<BaseLayout>
+  <section class="bg-white">
+    <div class="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[1.02fr_0.98fr] lg:px-8 lg:py-16">
+      <div class="flex flex-col justify-center">
+        <p class="text-sm font-semibold text-accent">{profile.role}</p>
+        <h1 class="mt-4 max-w-3xl text-4xl font-bold text-ink sm:text-5xl">
+          {profile.name}
+        </h1>
+        <p class="mt-5 max-w-2xl text-lg leading-8 text-muted">{profile.summary}</p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a
+            class="focus-ring rounded-md bg-primary px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-primary-strong"
+            href={withBase("projects/")}
+          >
+            查看项目
+          </a>
+          <a
+            class="focus-ring rounded-md border border-line bg-white px-4 py-2.5 text-sm font-semibold text-ink transition hover:border-primary hover:text-primary"
+            href={`mailto:${profile.email}`}
+          >
+            邮件联系
+          </a>
+        </div>
+        <dl class="mt-10 grid max-w-xl grid-cols-2 gap-4 sm:grid-cols-3">
+          <div class="rounded-lg border border-line bg-canvas p-4">
+            <dt class="text-sm text-muted">绩点</dt>
+            <dd class="mt-1 text-2xl font-bold text-ink">{profile.gpa}</dd>
+          </div>
+          <div class="rounded-lg border border-line bg-canvas p-4">
+            <dt class="text-sm text-muted">项目位</dt>
+            <dd class="mt-1 text-2xl font-bold text-ink">4</dd>
+          </div>
+          <div class="rounded-lg border border-line bg-canvas p-4">
+            <dt class="text-sm text-muted">方向</dt>
+            <dd class="mt-1 text-base font-bold text-ink">开发实习</dd>
+          </div>
+        </dl>
+      </div>
+      <div class="relative min-h-80 overflow-hidden rounded-lg border border-line bg-slate-100 shadow-sm">
+        <img
+          src={heroImage}
+          alt="开发工作台、笔记本电脑与项目展示界面"
+          class="h-full min-h-80 w-full object-cover"
+          loading="eager"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="border-y border-line bg-canvas">
+    <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
+      <SectionHeading
+        eyebrow="Profile"
+        title="先把能力讲清楚，再持续补充证据"
+        description="首版站点保留真实个人信息和可替换项目位，后续可以逐步填入项目链接、截图、复盘文章和完整简历。"
+      />
+      <div class="mt-8 grid gap-4 md:grid-cols-3">
+        {
+          profile.highlights.map((item) => (
+            <div class="rounded-lg border border-line bg-white p-5 shadow-sm">
+              <p class="leading-7 text-muted">{item}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white">
+    <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
+      <SectionHeading
+        eyebrow="Skills"
+        title="技能栈"
+        description="这里先按开发实习常见筛选维度组织，后续可按真实项目经历继续收敛。"
+      />
+      <div class="mt-8 grid gap-5 md:grid-cols-3">
+        {
+          profile.skills.map((group) => (
+            <section class="rounded-lg border border-line bg-canvas p-5">
+              <h3 class="text-lg font-bold text-ink">{group.title}</h3>
+              <div class="mt-4 flex flex-wrap gap-2">
+                {group.items.map((item) => (
+                  <span class="rounded-md bg-white px-3 py-1.5 text-sm font-medium text-muted shadow-sm">
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </section>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="border-y border-line bg-canvas">
+    <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
+      <div class="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+        <SectionHeading
+          eyebrow="Projects"
+          title="项目展示位"
+          description="4 个项目位已经预留，可直接替换为课程项目、竞赛项目、实习项目或个人作品。"
+        />
+        <a class="focus-ring rounded-md text-sm font-semibold text-primary hover:text-primary-strong" href={withBase("projects/")}>
+          查看全部项目
+        </a>
+      </div>
+      <div class="mt-8 grid gap-5 md:grid-cols-2">
+        {profile.projects.map((project) => <ProjectCard project={project} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white">
+    <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
+      <div class="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+        <SectionHeading
+          eyebrow="Blog"
+          title="技术博客入口"
+          description="博客用于承载项目复盘、技术笔记和面试准备内容。首版已放入一篇 MDX 示例文章。"
+        />
+        <div class="grid gap-3 sm:grid-cols-2">
+          {
+            profile.blogTopics.map((topic) => (
+              <a
+                class="focus-ring rounded-lg border border-line bg-canvas p-4 font-semibold text-ink transition hover:border-primary hover:text-primary"
+                href={withBase("blog/")}
+              >
+                {topic}
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
