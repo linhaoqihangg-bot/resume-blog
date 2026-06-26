@@ -5,10 +5,10 @@ export const profile = {
   gpa: "3.6",
   location: "中国",
   summary:
-    "关注 Web 工程、后端服务与数据处理，希望把课程训练、项目实践和工程习惯沉淀成可持续迭代的作品集。",
+    "关注 Web 工程、后端服务、桌面工具与 AI 医学影像应用，正在把课程训练、项目实践和工程习惯沉淀成可持续迭代的作品集。",
   highlights: [
     "绩点 3.6，具备稳定学习投入和课程基础",
-    "面向开发实习准备项目作品、技术文章和结构化简历",
+    "已发布后端 API、全栈运营台、桌面工具和 AI 医学影像平台等项目源码",
     "重视可维护代码、自动化构建和清晰的问题拆解",
   ],
   skills: [
@@ -27,12 +27,25 @@ export const profile = {
   ],
   projects: [
     {
-      name: "项目位 01：Web 应用实践",
-      status: "待替换为真实项目",
+      name: "套利监控与风控运营台",
+      status: "已发布到 GitHub",
       summary:
-        "用于展示一个完整 Web 应用，从需求拆解、页面实现、接口联调到部署上线的过程。",
-      stack: ["TypeScript", "Astro", "Tailwind CSS"],
-      outcome: "建议补充线上地址、GitHub 仓库和你负责的核心模块。",
+        "面向交易系统运维场景构建全栈运营台，用于展示套利机会、交易执行、风控状态、订单历史和人工复核流程。",
+      stack: [
+        "Python",
+        "FastAPI",
+        "PostgreSQL",
+        "Redis",
+        "React",
+        "TypeScript",
+        "Vite",
+        "Tailwind CSS",
+        "Docker Compose",
+        "pytest",
+      ],
+      outcome:
+        "实现机会监控、执行视图、风险状态、订单历史、watchlist、设置页、人工复核与恢复流程；完成后端模块语法检查和前端 Vite 生产构建，公开仓库已排除真实交易凭据、本地数据库和构建产物。",
+      githubUrl: "https://github.com/linhaoqihangg-bot/arbitrage-ops-console",
     },
     {
       name: "FastAPI PostgreSQL 权限认证后端",
@@ -55,20 +68,42 @@ export const profile = {
       githubUrl: "https://github.com/linhaoqihangg-bot/internship-fastapi-api",
     },
     {
-      name: "项目位 03：数据处理工具",
-      status: "待替换为真实项目",
+      name: "Stock Island 股票行情桌面工具",
+      status: "已发布到 GitHub",
       summary:
-        "用于展示数据清洗、自动化脚本、报表生成或批处理流程的工程化能力。",
-      stack: ["Python", "Pandas", "Automation"],
-      outcome: "建议补充输入输出样例、处理规模和结果截图。",
+        "使用 Python 标准库和 Tkinter 实现 Windows 灵动岛风格行情面板，配置股票代码后自动拉取并展示实时行情。",
+      stack: [
+        "Python",
+        "Tkinter",
+        "urllib",
+        "Sina Finance API",
+        "JSON Config",
+        "Windows Desktop",
+      ],
+      outcome:
+        "实现股票代码标准化、行情拉取、多编码解析、涨跌幅/区间/成交额计算、可拖拽置顶 UI、右键刷新/展开/退出和数据源 provider 扩展点；本地通过 py_compile 验证。",
+      githubUrl: "https://github.com/linhaoqihangg-bot/stock-island-desktop",
     },
     {
-      name: "项目位 04：课程或竞赛作品",
-      status: "待替换为真实项目",
+      name: "基层 MRI 影像智能增强平台",
+      status: "已发布到 GitHub",
       summary:
-        "用于展示课程设计、算法训练、竞赛项目或团队协作中的具体贡献。",
-      stack: ["Git", "Documentation", "Testing"],
-      outcome: "建议补充团队角色、实现难点和复盘总结。",
+        "面向互联网+参赛和基层医疗场景，构建 MRI 图像上传、增强、分割入口、指标面板和报告预览的演示平台。",
+      stack: [
+        "Python",
+        "FastAPI",
+        "Streamlit",
+        "OpenCV",
+        "NumPy",
+        "Pandas",
+        "Pillow",
+        "MONAI",
+        "TorchScript/ONNX",
+        "REST API",
+      ],
+      outcome:
+        "实现 MRI 图像上传、模拟去噪/超分/增强、原图与增强图对比、病灶 mask 模拟、MONAI BraTS 四模态分割入口、PSNR/SNR/病灶概率指标、报告预览和 JSON/CSV 导出；本地完成 Python 模块编译验证，公开仓库保留源码并排除模型权重、vendor、临时图像和商业计划书导出物。",
+      githubUrl: "https://github.com/linhaoqihangg-bot/mri-enhancement-platform",
     },
   ],
   education: {
